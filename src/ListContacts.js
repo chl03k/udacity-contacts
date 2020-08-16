@@ -1,9 +1,9 @@
 import React from "react";
 
-function ListContacts({ contacts }) {
+function ListContacts({ contacts, onDeleteContact }) {
   return (
     <ul className="contact-list">
-      {contacts.map(({ name, handle, avatarURL }) => {
+      {contacts.map(({ id, name, handle, avatarURL }) => {
         return (
           <li key={name} className="contact-list-item">
             <div
@@ -14,7 +14,7 @@ function ListContacts({ contacts }) {
               <p>{name}</p>
               <p>{handle}</p>
             </div>
-            <button className="contact-remove">Remove</button>
+            <button onClick={() => onDeleteContact(id) }className="contact-remove">Remove</button>
           </li>
         );
       })}
