@@ -29,10 +29,12 @@ class App extends Component {
     this.setState(({ contacts: curretContacts }) => ({
       contacts: curretContacts.filter(({ id }) => id !== contactId),
     }));
-  }
+  };
   render() {
     const { contacts } = this.state;
-    return <ListContacts contacts={contacts} onDeleteContact={this.removeContact}/>;
+    return (
+      <ListContacts contacts={contacts} onDeleteContact={this.removeContact} />
+    );
   }
 }
 

@@ -14,7 +14,12 @@ function ListContacts({ contacts, onDeleteContact }) {
               <p>{name}</p>
               <p>{handle}</p>
             </div>
-            <button onClick={() => onDeleteContact(id) }className="contact-remove">Remove</button>
+            <button
+              onClick={() => onDeleteContact(id)}
+              className="contact-remove"
+            >
+              Remove
+            </button>
           </li>
         );
       })}
