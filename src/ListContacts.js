@@ -10,6 +10,10 @@ class ListContacts extends Component {
     this.setState({ query: query.trim() });
   };
 
+  onClearQuery = () => {
+    this.setState({ query: "" });
+  };
+
   render() {
     const { query } = this.state;
     const { contacts, onDeleteContact } = this.props;
@@ -32,6 +36,14 @@ class ListContacts extends Component {
             onChange={(event) => this.upadateQuery(event.target.value)}
           />
         </div>
+        {filteredContacts.length !== contacts.length && (
+          <div className="showing-contacts">
+            <span>
+              Not showing {filteredContacts.length} of {contacts.length}
+            </span>
+            <button onClick={() => this.onClearQuery()}>Show all</button>
+          </div>
+        )}
         <ul className="contact-list">
           {filteredContacts.map(({ id, name, handle, avatarURL }) => {
             return (
