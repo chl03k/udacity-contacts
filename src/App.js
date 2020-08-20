@@ -12,12 +12,14 @@ class App extends Component {
       this.setState({ contacts })
     })
   }
-  
+
   removeContact = (contactId) => {
     this.setState(({ contacts: curretContacts }) => ({
       contacts: curretContacts.filter(({ id }) => id !== contactId),
     }));
+    ContactsAPI.remove(contactId)
   };
+
   render() {
     const { contacts } = this.state;
     return (
